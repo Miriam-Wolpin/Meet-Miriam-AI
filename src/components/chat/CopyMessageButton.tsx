@@ -6,11 +6,11 @@ interface Props {
 
 export default function CopyMessageButton({ text }: Props) {
     const [copied, setCopied] = useState(false);
-    const timeoutRef = useRef<number>();
+    const timeoutRef = useRef<number | null>(null);
 
     useEffect(() => {
         return () => {
-            if (timeoutRef.current) {
+            if (timeoutRef.current !== null) {
                 window.clearTimeout(timeoutRef.current);
             }
         };

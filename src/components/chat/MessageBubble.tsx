@@ -17,7 +17,6 @@ function MessageBubble({
     sources,
 }: Props) {
     const isUser = role === "user";
-    const rtl = /[\u0590-\u05FF]/.test(content);
 
     return (
         <div className={`
