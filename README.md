@@ -1,32 +1,150 @@
-# React + TypeScript + Vite
+# Meet Miriam AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> **An AI-powered interactive portfolio that allows recruiters to interview me through a natural conversation.**
 
-Currently, two official plugins are available:
+<p align="center">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript)]()
+[![FastAPI](https://img.shields.io/badge/FastAPI-Python-009688?logo=fastapi)]()
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT-black)]()
 
-## React Compiler
+</p>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🌐 Live Demo
 
-## Expanding the Oxlint configuration
+👉 https://meet-miriam-ai-blue.vercel.app
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+---
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Preview
+
+### Landing Page
+
+![Landing Page](assets/landing.png)
+
+---
+
+### AI Chat
+
+![AI Chat](assets/chat.png)
+
+---
+
+## Overview
+
+Meet Miriam AI is an interactive portfolio that lets recruiters explore my professional experience through conversation instead of reading a static resume.
+
+The assistant answers questions about my engineering experience, projects, architecture decisions and technical background using a custom retrieval pipeline and dynamic prompt generation.
+
+---
+
+## Features
+
+- 💬 AI-powered interview experience
+- ⚡ Streaming responses
+- 🌍 English & Hebrew support
+- 📝 Markdown rendering with syntax highlighting
+- 📋 Copy response button
+- 📱 Responsive UI
+- 🎯 Dynamic context selection
+- 🧠 Advanced prompt engineering
+- 🚀 FastAPI backend
+- ⚛️ React + TypeScript frontend
+
+---
+
+## Architecture
+
+```text
+Browser
+    │
+React + TypeScript
+    │
+FastAPI API
+    │
+Context Router
+    │
+Markdown Knowledge Base
+    │
+Prompt Builder
+    │
+OpenAI API
+    │
+Streaming Response
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+---
+
+## Tech Stack
+
+| Layer | Technologies |
+|-------|--------------|
+| Frontend | React 19, TypeScript, Vite, Tailwind CSS, React Query |
+| Backend | FastAPI, Python |
+| AI | OpenAI API, Custom Retrieval Pipeline, Prompt Engineering |
+| Deployment | Vercel, Render |
+
+---
+
+## Running Locally
+
+### Frontend
+
+```bash
+npm install
+npm run dev
+```
+
+### Backend
+
+```bash
+cd backend
+
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+
+# Linux / macOS
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+uvicorn app.main:app --reload
+```
+
+---
+
+## Environment Variables
+
+Frontend
+
+```env
+VITE_API_URL=http://localhost:8000
+```
+
+Backend
+
+```env
+OPENAI_API_KEY=your_api_key
+FRONTEND_URL=http://localhost:5173
+```
+
+---
+
+## Future Improvements
+
+- Conversation history
+- Authentication
+- Conversation persistence
+- Semantic retrieval using embeddings
+- Vector database integration
+- Streaming optimizations
+- Analytics dashboard
+
+---
+
+## License
+
+This project is licensed under the MIT License.
