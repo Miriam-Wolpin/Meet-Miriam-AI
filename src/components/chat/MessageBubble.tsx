@@ -1,5 +1,5 @@
 import { memo } from "react";
-
+import { motion } from "framer-motion";
 import Avatar from "./Avatar";
 import MarkdownRenderer from "./MarkdownRenderer";
 import CopyMessageButton from "./CopyMessageButton";
@@ -107,12 +107,31 @@ gap-2
         select-text
     "
                         >
-                            <MarkdownRenderer
-                                content={content}
-                            />
+                            {content.length === 0 && !isUser ? (
+                                <div className="flex items-center gap-2 py-2">
+                                    {[0, 1, 2].map((i) => (
+                                        <motion.div
+                                            key={i}
+                                            className="h-2 w-2 rounded-full bg-slate-400"
+                                            animate={{
+                                                y: [0, -5, 0],
+                                                opacity: [0.4, 1, 0.4],
+                                            }}
+                                            transition={{
+                                                duration: 0.7,
+                                                repeat: Infinity,
+                                                delay: i * 0.15,
+                                                ease: "easeInOut",
+                                            }}
+                                        />
+                                    ))}
+                                </div>
+                            ) : (
+                                <MarkdownRenderer content={content} />
+                            )}
                         </div>
 
-                        {!isUser && (
+                        {!isUser && content.length > 0 && (
                             <>
                                 <div className="mt-4 flex justify-end border-t border-slate-100 pt-3">
                                     <CopyMessageButton text={content} />

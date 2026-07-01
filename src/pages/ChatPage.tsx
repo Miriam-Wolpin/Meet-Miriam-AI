@@ -101,9 +101,7 @@ Ask me anything about my experience, projects, cloud engineering or AI work.`
 
         }
 
-        setTimeout(() => {
-            send(prompt);
-        }, 150);
+        send(prompt);
 
     }, [
         location.state,
