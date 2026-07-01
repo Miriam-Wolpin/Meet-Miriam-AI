@@ -19,37 +19,24 @@ async def chat(
     request: ChatRequest,
 ):
 
-    response = ai_service.generate(
-        request
-    )
+    response = ai_service.generate(request)
 
-    return ChatResponse(
-        **response.model_dump()
-    )
+    return ChatResponse(**response.model_dump())
 
 
-@router.post(
-    "/stream"
-)
+@router.post("/stream")
 async def stream_chat(
     request: ChatRequest,
 ):
 
     def event_stream():
 
-        for chunk in ai_service.stream(
-            request
-        ):
+        for chunk in ai_service.stream(request):
             yield f"data:{chunk}\n\n"
 
-        sources = context_router.get_files(
-            request.message
-        )
+        sources = context_router.get_files(request.message)
 
-        yield (
-            "event:sources\n"
-            f"data:{','.join(sources)}\n\n"
-        )
+        yield ("event:sources\n" f"data:{','.join(sources)}\n\n")
 
     return StreamingResponse(
         event_stream(),

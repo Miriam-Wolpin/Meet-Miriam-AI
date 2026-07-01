@@ -5,8 +5,17 @@ import ProjectsSection from "../components/landing/ProjectsSection";
 import TimelineSection from "../components/landing/TimelineSection";
 import ExploreSection from "../components/landing/ExploreSection";
 import Footer from "../components/common/Footer";
+import { useEffect } from "react";
+import { API_BASE_URL } from "../config/api";
 
 export default function LandingPage() {
+
+    useEffect(() => {
+        void fetch(`${API_BASE_URL}/health`, {
+            cache: "no-store",
+            keepalive: true,
+        }).catch(() => { });
+    }, []);
 
     return (
 
